@@ -24,6 +24,7 @@
             <div class="row mt-3 mb-3">
                 <h1 class="col-sm-12 text-center text-primary"><?= $login_user->name ?>さんの投稿番号<?= $post->id ?>の詳細</h1>
             </div>
+            <?php include_once 'views/_flush_view.php'; ?>
             <div class="row mt-2">
                 <table class="table table-bordered table-striped">
                     <tr class="text-center">

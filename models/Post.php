@@ -68,9 +68,9 @@
                     // 実行
                     $stmt->execute();
                 } else { // 投稿を更新する場合
-                    $stmt = $pdo->prepare("UPDATE posts SET title=:title, content=:content, image=:image WHERE id=:id");
+                    $stmt = $pdo->prepare("UPDATE posts SET title=:title, content=:content, image=:image, WHERE id=:id");
                     // バインド処理
-                    $stmt->bindParam(':title', $this->title, PDO::PARAM_INT);
+                    $stmt->bindParam(':title', $this->title, PDO::PARAM_STR);
                     $stmt->bindParam(':content', $this->content, PDO::PARAM_STR);
                     $stmt->bindParam(':image', $this->image, PDO::PARAM_STR);
                     $stmt->bindParam(':id', $this->id, PDO::PARAM_INT);
