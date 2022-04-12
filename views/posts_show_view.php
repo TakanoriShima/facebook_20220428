@@ -43,10 +43,9 @@
                 </table>
             </div>
             <div class="row mt-5">
-                <a href="posts_edit.php" class="offset-sm-3 col-sm-5 btn btn-success">編集</a>
+                <a href="posts_edit.php?id=<?= $post->id ?>" class="offset-sm-3 col-sm-5 btn btn-success">編集</a>
                 <form class="offset-sm-2 col-sm-6 mt-5 row" action="posts_destroy.php" method="POST">
                     <input type="hidden" name="id" value="<?= $post->id ?>"/>
-                    <input type="hidden" name="_token" value="<?= $token ?>"/>
                     <button class="offset-2 col-sm-10 btn btn-danger" type="submit" onclick="return confirm('本当に削除しますか?')">削除</button>
                 </form>
             </div>

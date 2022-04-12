@@ -12,7 +12,7 @@
         <?php include_once 'views/_navbar_view.php'; ?>
         <div class="container">
             <div class="row mt-3">
-                <h1 class="col-sm-12 text-center text-primary pb-1">新規投稿</h1>
+                <h1 class="col-sm-12 text-center text-primary mt-3 mb-3">新規投稿</h1>
             </div>
             <?php include_once 'views/_errors_view.php';?>
             <div class="row mt-3">
