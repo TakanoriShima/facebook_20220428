@@ -14,7 +14,6 @@
     
     // エラーの検証のメソッド
     $errors = $post->validate();
-    // var_dump($errors);
     if(count($errors) === 0) {
         if($post->upload()) {
             $flush = $post->save();

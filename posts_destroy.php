@@ -2,7 +2,7 @@
     //(C)
     require_once 'filters/login_filter.php';
     require_once 'models/Post.php';
-    
+
     $id = $_POST['id'];
     // モデルを使ってPostインスタンスを取得
     $post = Post::find($id);

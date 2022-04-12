@@ -24,9 +24,6 @@
             <div class="row mt-3 mb-3">
                 <h1 class="col-sm-12 text-center text-primary"><?= $login_user->name ?>さんのMyPage</h1>
             </div>
-            <div class="row mt-3 mb-3">
-                <h2 class="col-sm-12 text-center text-success">投稿一覧</h2>
-            </div>
             <?php include_once 'views/_flush_view.php'; ?>
             <div class="row mt-2">
                 <?php if(count($posts) !== 0) : ?>

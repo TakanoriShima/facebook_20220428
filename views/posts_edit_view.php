@@ -46,7 +46,6 @@
                         <button type="submit" class="offset-sm-3 col-sm-6 btn btn-primary">更新</button>
                     </div>
                     <input type="hidden" name="id" value="<?= $post->id ?>">
-                    
                 </form>
                 <div class="row offset-sm-3 col-sm-6 mt-3">
                         <a href="posts_show.php?id=<?= $post->id ?>" class="col-sm-12 btn btn-danger">投稿番号<?= $post->id ?>の詳細へ戻る</a>

@@ -6,6 +6,9 @@
     // GET通信で飛んできたidからPostインスタンスを復元
     $post = Post::find($id);
     
+    $errors = $_SESSION['errors'];
+    $_SESSION['errors'] = null;
+    
     $flush = $_SESSION['flush'];
     $_SESSION['flush'] = null;
     
