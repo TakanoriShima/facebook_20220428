@@ -57,16 +57,33 @@
         public function save(){
             try {
                 $pdo = self::get_connection();
-                $stmt = $pdo->prepare("INSERT INTO posts(user_id, title, content, image) VALUES(:user_id, :title, :content, :image)");
-                // バインド処理
-                $stmt->bindParam(':user_id', $this->user_id, PDO::PARAM_INT);
-                $stmt->bindParam(':title', $this->title, PDO::PARAM_STR);
-                $stmt->bindParam(':content', $this->content, PDO::PARAM_STR);
-                $stmt->bindParam(':image', $this->image, PDO::PARAM_STR);
-                // 実行
-                $stmt->execute();
+                // 新規投稿の場合
+                if($this->id === null ) { 
+                    $stmt = $pdo->prepare("INSERT INTO posts(user_id, title, content, image) VALUES(:user_id, :title, :content, :image)");
+                    // バインド処理
+                    $stmt->bindParam(':user_id', $this->user_id, PDO::PARAM_INT);
+                    $stmt->bindParam(':title', $this->title, PDO::PARAM_STR);
+                    $stmt->bindParam(':content', $this->content, PDO::PARAM_STR);
+                    $stmt->bindParam(':image', $this->image, PDO::PARAM_STR);
+                    // 実行
+                    $stmt->execute();
+                } else { // 投稿を更新する場合
+                    $stmt = $pdo->prepare("UPDATE posts SET title=:title, content=:content, image=:image WHERE id=:id");
+                    // バインド処理
+                    $stmt->bindParam(':title', $this->title, PDO::PARAM_INT);
+                    $stmt->bindParam(':content', $this->content, PDO::PARAM_STR);
+                    $stmt->bindParam(':image', $this->image, PDO::PARAM_STR);
+                    $stmt->bindParam(':id', $this->id, PDO::PARAM_INT);
+                     // 実行
+                    $stmt->execute();
+                }
+                
                 self::close_connection($pdo, $stmt);
-                return "新規投稿が成功しました。";
+                if($this->id === null) {
+                    return "新規投稿が成功しました。";
+                } else {
+                    return "投稿番号" . $this->id . "の投稿を更新しました。";
+                }
                 
             } catch (PDOException $e) {
                 return '';
