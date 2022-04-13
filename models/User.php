@@ -140,6 +140,7 @@
                 return null;
             }
         }
+        
         // 注目するユーザーが投稿した投稿一覧を取得
         public function posts(){
             try {

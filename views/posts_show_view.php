@@ -33,6 +33,7 @@
                         <th>内容</th>
                         <th>画像</th>
                         <th>投稿日時</th>
+                        <th>更新日時</th>
                     </tr>
                     <tr class="text-center">
                         <td><?= $post->id ?></td>
@@ -40,6 +41,7 @@
                         <td><?= $post->content ?></td>
                         <td><img src="uploads/posts/<?= $post->image ?>" alt="<?= $post->image ?>" class="post_img"></td>
                         <td><?= $post->created_at ?></td>
+                        <td><?= $post->updated_at === '0000-00-00 00:00:00' ? '更新はありません' : $post->updated_at ?></td>
                     </tr>
                 </table>
             </div>

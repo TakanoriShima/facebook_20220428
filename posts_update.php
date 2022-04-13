@@ -17,6 +17,7 @@
     $post->title = $title;
     $post->content = $content;
     
+    // タイトルや内容だけ変更したい場合もあり、エラーにより入力が手間になるため$imageを条件分岐
     if($image !== '') {
         $post->image = $image;
     }

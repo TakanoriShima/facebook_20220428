@@ -41,7 +41,7 @@
         public static function all(){
             try {
                 $pdo = self::get_connection();
-                $stmt = $pdo->query('SELECT posts.id, users.name, posts.title, posts.content, posts.image, posts.created_at FROM posts JOIN users ON posts.user_id=users.id ORDER BY posts.id DESC');
+                $stmt = $pdo->query('SELECT posts.id, users.name, posts.title, posts.content, posts.image, posts.created_at, posts.updated_at FROM posts JOIN users ON posts.user_id=users.id ORDER BY posts.id DESC');
                 // フェッチの結果を、Postクラスのインスタンスにマッピングする
                 $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Post');
                 $posts = $stmt->fetchAll();
@@ -68,7 +68,7 @@
                     // 実行
                     $stmt->execute();
                 } else { // 投稿を更新する場合
-                    $stmt = $pdo->prepare("UPDATE posts SET title=:title, content=:content, image=:image WHERE id=:id");
+                    $stmt = $pdo->prepare("UPDATE posts SET title=:title, content=:content, image=:image, updated_at=NOW() WHERE id=:id");
                     // バインド処理
                     $stmt->bindParam(':title', $this->title, PDO::PARAM_STR);
                     $stmt->bindParam(':content', $this->content, PDO::PARAM_STR);
@@ -80,9 +80,9 @@
                 
                 self::close_connection($pdo, $stmt);
                 if($this->id === null) {
-                    return "新規投稿が成功しました。";
+                    return "新規投稿が成功しました";
                 } else {
-                    return "投稿番号" . $this->id . "の投稿を更新しました。";
+                    return "投稿番号" . $this->id . "の投稿を更新しました";
                 }
                 
             } catch (PDOException $e) {

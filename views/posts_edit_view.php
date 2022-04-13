@@ -50,7 +50,7 @@
                 </form>
             </div>
             <div class="row mt-4">
-                    <a href="posts_show.php?id=<?= $post->id ?>" class="offset-sm-3 col-sm-6 btn btn-danger">投稿番号<?= $post->id ?>の詳細へ戻る</a>
+                    <a href="posts_show.php?id=<?= $post->id ?>" class="offset-sm-3 col-sm-6 btn btn-danger"><?= $login_user->name ?>さんの投稿番号<?= $post->id ?>の詳細へ戻る</a>
             </div>
             
         </div>

@@ -10,7 +10,6 @@
     $image = $_FILES['image']['name'];
     
     $post = new Post($login_user->id, $title, $content, $image);
-    // var_dump($post);
     
     // エラーの検証のメソッド
     $errors = $post->validate();
