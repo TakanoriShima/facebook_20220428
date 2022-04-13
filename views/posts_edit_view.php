@@ -11,7 +11,7 @@
     <body style="background: url(images/gray.jpg);">
         <?php include_once 'views/_navbar_view.php'; ?>
         <div class="container">
-            <div class="row mt-3">
+            <div class="row mt-4 mb-4">
                 <h1 class="col-sm-12 text-center text-primary mt-3 mb-3"><?= $login_user->name ?>さんの投稿番号<?= $post->id ?>の編集</h1>
             </div>
             <?php include_once 'views/_errors_view.php';?>
@@ -42,16 +42,15 @@
                     </div>
                     
                     <!-- 1行 -->
-                    <div class="row mt-5 mb-5">
+                    <div class="row mt-5">
                         <button type="submit" class="offset-sm-3 col-sm-6 btn btn-primary">更新</button>
                     </div>
                     <input type="hidden" name="id" value="<?= $post->id ?>">
+                    
                 </form>
-                <div class="row offset-sm-3 col-sm-6 mt-3">
-                        <a href="posts_show.php?id=<?= $post->id ?>" class="col-sm-12 btn btn-danger">投稿番号<?= $post->id ?>の詳細へ戻る</a>
-                </div>
-                
-                
+            </div>
+            <div class="row mt-4">
+                    <a href="posts_show.php?id=<?= $post->id ?>" class="offset-sm-3 col-sm-6 btn btn-danger">投稿番号<?= $post->id ?>の詳細へ戻る</a>
             </div>
             
         </div>

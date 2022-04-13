@@ -11,7 +11,7 @@
     <body style="background: url(images/gray.jpg);">
         <?php include_once 'views/_navbar_view.php'; ?>
         <div class="container">
-            <div class="row mt-3">
+            <div class="row mt-4 mb-4">
                 <h1 class="col-sm-12 text-center text-primary mt-3 mb-3">新規投稿</h1>
             </div>
             <?php include_once 'views/_errors_view.php';?>
@@ -42,7 +42,7 @@
                     </div>
                     
                     <!-- 1行 -->
-                    <div class="row mt-5 mb-5">
+                    <div class="row mt-5">
                         <button type="submit" class="offset-sm-3 col-sm-6 btn btn-primary">新規投稿</button>
                     </div>
                     <input type="hidden" name="_token" value="<?= $token ?>">

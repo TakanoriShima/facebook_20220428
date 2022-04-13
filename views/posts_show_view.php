@@ -21,7 +21,7 @@
     <body style="background: url(images/gray.jpg);">
         <?php include_once 'views/_navbar_view.php'; ?>
         <div class="container p-2">
-            <div class="row mt-3 mb-3">
+            <div class="row mt-4 mb-4">
                 <h1 class="col-sm-12 text-center text-primary"><?= $login_user->name ?>さんの投稿番号<?= $post->id ?>の詳細</h1>
             </div>
             <?php include_once 'views/_flush_view.php'; ?>
@@ -43,13 +43,15 @@
                     </tr>
                 </table>
             </div>
-            <div class="row mt-5">
-                <a href="posts_edit.php?id=<?= $post->id ?>" class="offset-sm-3 col-sm-5 btn btn-success">編集</a>
-                <form class="offset-sm-2 col-sm-6 mt-5 row" action="posts_destroy.php" method="POST">
-                    <input type="hidden" name="id" value="<?= $post->id ?>"/>
-                    <button class="offset-2 col-sm-10 btn btn-danger" type="submit" onclick="return confirm('本当に削除しますか?')">削除</button>
-                </form>
+            <div class="row">
+                <a href="posts_edit.php?id=<?= $post->id ?>" class="offset-sm-3 col-sm-6 btn btn-success mt-5">編集</a>
             </div>
+            <form action="posts_destroy.php" method="POST">
+                <input type="hidden" name="id" value="<?= $post->id ?>"/>
+                <div class="row mt-4">
+                    <button class="offset-sm-3 col-sm-6 btn btn-danger" type="submit" onclick="return confirm('本当に削除しますか?')">削除</button>
+                </div>
+            </form>
         </div>
     </body>
 </html> 

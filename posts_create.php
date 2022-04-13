@@ -11,5 +11,6 @@
     if($post === null) {
         $post = new Post();
     }
+    
     include_once 'views/posts_create_view.php';
     
