@@ -1,20 +1,19 @@
 <?php
     // (C)
-    // var_dump($_POST);
-    // var_dump($_FILES);
     require_once 'filters/csrf_filter.php';
     require_once 'models/User.php';
+    
+    // POST,FILE通信で送られてきた値を取得
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $image = $_FILES['image']['name'];
     
+    // 新しいUserインスタンスを作成
     $user = new User($name, $email, $password, $image);
-    // var_dump($user);
     
     // エラーの検証のメソッド
     $errors = $user->validate();
-    // var_dump($errors);
     if(count($errors) === 0) {
         if($user->upload()) {
             $flush = $user->save();

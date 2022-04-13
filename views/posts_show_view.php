@@ -48,6 +48,7 @@
             </div>
             <form action="posts_destroy.php" method="POST">
                 <input type="hidden" name="id" value="<?= $post->id ?>"/>
+                <input type="hidden" name="_token" value="<?= $token ?>">
                 <div class="row mt-4">
                     <button class="offset-sm-3 col-sm-6 btn btn-danger" type="submit" onclick="return confirm('本当に削除しますか?')">削除</button>
                 </div>

@@ -51,7 +51,6 @@
                 <h2 class="col-sm-12 text-center text-danger">投稿はまだありません</h2>
                 <?php endif; ?>
             </div>
-            
         </div>
     </body>
 </html>

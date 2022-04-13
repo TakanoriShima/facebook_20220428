@@ -46,7 +46,7 @@
                         <button type="submit" class="offset-sm-3 col-sm-6 btn btn-primary">更新</button>
                     </div>
                     <input type="hidden" name="id" value="<?= $post->id ?>">
-                    
+                    <input type="hidden" name="_token" value="<?= $token ?>">
                 </form>
             </div>
             <div class="row mt-4">
