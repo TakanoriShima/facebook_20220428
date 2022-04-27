@@ -8,7 +8,7 @@
     $title = $_POST['title'];
     $content = $_POST['content'];
     $image = $_FILES['image']['name'];
-    
+    // 入力された値を新しいPostインスタンスにセット
     $post = new Post($login_user->id, $title, $content, $image);
     
     // エラーの検証のメソッド
