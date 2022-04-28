@@ -2,7 +2,7 @@
     // (C)
     require_once 'filters/login_filter.php';
     require_once 'filters/csrf_filter.php';
-    require_once 'models/Post.php';
+    // require_once 'models/Post.php';
     
     // フォームで入力した値を取得
     $id = $_POST['id'];
@@ -13,6 +13,18 @@
     //そのidのユーザーインスタンスを取得
     $post = Post::find($id);
     
+    
+    
+    if($post === false){
+        print('a');
+        header('Location: top.php');
+        exit;
+    }else if($login_user->id !== $post->user_id){
+        header('Location: top.php');
+        exit;
+    }
+    
+    
     // Postインスタンスの個性を変更
     $post->title = $title;
     $post->content = $content;
@@ -22,8 +34,10 @@
         $post->image = $image;
     }
     
-    // エラーの検証のメソッド
+
+    // // エラーの検証のメソッド
     $errors = $post->validate();
+
     
     if(count($errors) === 0) {
         if($image !== '') {
